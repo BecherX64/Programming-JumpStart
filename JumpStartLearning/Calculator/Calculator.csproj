@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7EC11CD-5C63-4716-A98E-6631FC0D13F0}</ProjectGuid>
+    <ProjectGuid>{7B4BA5E9-F1D8-4752-A902-31E097C54B2C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>JumpStartLearning</RootNamespace>
-    <AssemblyName>JumpStartLearning</AssemblyName>
+    <RootNamespace>Calculator</RootNamespace>
+    <AssemblyName>Calculator</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Learning.cs" />
+    <Compile Include="calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
