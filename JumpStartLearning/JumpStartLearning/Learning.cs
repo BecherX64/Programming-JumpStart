@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,7 +109,53 @@ namespace JumpStartLearning
 			dunco.MyMethod(40, 50);
 			Console.WriteLine("Class Dog: {0}: vek: {1}",dunco.Name, dunco.Age);
 
-			
+
+			//LINQ - query and method syntax
+			var data = Enumerable.Range(1, 50);
+
+			var method = //IEnumerable<string>
+				data.Where(item => item % 2 == 0)
+				.Select(item => item.ToString());
+
+			var query = //IEnumerable<string>
+				from item in data
+				where item % 2 == 0
+				select item.ToString();
+
+			//Debugger.Break();
+
+			//cerate new object projection 
+			var projection =
+				from item in data
+				select new
+				{
+					Even = (item % 2 == 0),
+					Odd = !(item % 2 == 0),
+					Value = item,
+				};
+
+			//write out all items from 'projection'
+			foreach (var item in projection)
+			{
+				Console.WriteLine(item.Value);
+			}
+
+
+			//new array of letters
+			var letters = new[] { "A", "C", "B", "D", "Q" };
+			//sort ascending
+			var sortAsc =
+				from item in letters
+				orderby item ascending
+				select item;
+			//sort descending
+			var sortDesc =
+				letters.OrderByDescending(item => item);
+			//other tricks
+			var distinct = letters.Distinct(); //remove duplicates
+			var first = letters.First();
+			var firstOr = letters.FirstOrDefault();
+			var last = letters.Last();
 
 
 		//press any key before exit

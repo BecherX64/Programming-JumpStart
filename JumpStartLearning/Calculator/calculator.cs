@@ -66,17 +66,17 @@ namespace Calculator
 			return i * j;
 		}
 
-		static int Substraction(int i, int j)
+		private static int Substraction(int i, int j)
 		{
 			return i - j;
 		}
 
-		static int Addition(int i, int j)
+		private static int Addition(int i, int j)
 		{
 			return i + j;
 		}
 
-		static int GetSomeKeyAsNumber()
+		private static int GetSomeKeyAsNumber()
 		{
 			Console.WriteLine("Enter any number:");
 			string _Text = Console.ReadLine();
@@ -84,7 +84,7 @@ namespace Calculator
 			return _output;
 			
 		}
-		static void ShowMenu()
+		private static void ShowMenu()
 		{
 			//Console.Clear();
 			Console.WriteLine("(a)ddition: Press 'a'");
