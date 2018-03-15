@@ -12,15 +12,14 @@ namespace JumpStartFiles
 	{
 		static void Main(string[] args)
 		{
-
-
 			//variable definition
 			StringBuilder SomeString = new StringBuilder();
 			StringBuilder SomeStringToPlay = new StringBuilder();
 
 			string SourceString = "X", DestinationString = "";
-			int iteration = 100;
+			int iteration = 10;
 
+			
 			//Fun with StringBuilder
 
 			//define StopWatch
