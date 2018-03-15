@@ -156,10 +156,29 @@ namespace JumpStartLearning
 			var first = letters.First();
 			var firstOr = letters.FirstOrDefault();
 			var last = letters.Last();
+			Console.WriteLine(letters[1]);
 
 
-		//press any key before exit
-		Console.WriteLine("Press any key ..");
+			//define peopleArray
+			Member[] peopleArray = new Member[3]
+				{
+					new Member("Cody","Blackwell"),
+					new Member("Raj","Chawada"),
+					new Member("Harry","Lipsey"),
+				};
+			//list all items in peopleArray
+			Members peopleList = new Members(peopleArray);
+			foreach (Member p in peopleList)
+			{
+				Console.WriteLine(p.CompanyAffiliation + ":" + p.CV_Info);
+			}
+			//write 2nd member of object
+			Console.WriteLine(peopleArray[1].CompanyAffiliation);
+
+			
+
+			//press any key before exit
+			Console.WriteLine("Press any key ..");
 			Console.ReadKey(true);
 		}
 	}

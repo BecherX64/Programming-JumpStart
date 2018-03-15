@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpStartLearning", "JumpSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{7B4BA5E9-F1D8-4752-A902-31E097C54B2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpStartFiles", "JumpStartFiles\JumpStartFiles.csproj", "{4E0F96BC-5681-443C-B633-22972ED1AA28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7B4BA5E9-F1D8-4752-A902-31E097C54B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B4BA5E9-F1D8-4752-A902-31E097C54B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B4BA5E9-F1D8-4752-A902-31E097C54B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E0F96BC-5681-443C-B633-22972ED1AA28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0F96BC-5681-443C-B633-22972ED1AA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0F96BC-5681-443C-B633-22972ED1AA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0F96BC-5681-443C-B633-22972ED1AA28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

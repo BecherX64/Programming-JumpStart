@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7EC11CD-5C63-4716-A98E-6631FC0D13F0}</ProjectGuid>
+    <ProjectGuid>{4E0F96BC-5681-443C-B633-22972ED1AA28}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>JumpStartLearning</RootNamespace>
-    <AssemblyName>JumpStartLearning</AssemblyName>
+    <RootNamespace>JumpStartFiles</RootNamespace>
+    <AssemblyName>JumpStartFiles</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,25 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassesFun.cs" />
-    <Compile Include="FileClass.cs" />
-    <Compile Include="IEnumerableFun.cs" />
-    <Compile Include="Component1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Component1.Designer.cs">
-      <DependentUpon>Component1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Learning.cs" />
+    <Compile Include="StringBuilderDefinition.cs" />
+    <Compile Include="FunWithFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClFileClassDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Component1.resx">
-      <DependentUpon>Component1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
