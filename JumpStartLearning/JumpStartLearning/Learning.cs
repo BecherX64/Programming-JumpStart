@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace JumpStartLearning
@@ -175,7 +176,26 @@ namespace JumpStartLearning
 			//write 2nd member of object
 			Console.WriteLine(peopleArray[1].CompanyAffiliation);
 
+
+			//Regular expressions
+			string pattern = "(Mrs\\.?|Mr\\.?)";
+			string[] names =  {"Mr. Fero","Mr. Juro","Mrs. Jana","Ms. Mata"};
 			
+			//standard loop thought array
+			foreach (string name in names)
+			{
+				Console.WriteLine("Regex replacement: {0}",Regex.Replace(name,pattern,"X"));
+			}
+			//work with array using index
+			int itteration = names.Count();
+			for (int i = 0; i < itteration; i++)
+			{
+				string text = names[i];
+				Console.WriteLine("Array of strings: Item: {0} on possition: {1}",text,i);
+				Console.WriteLine("Replace using Regex:{0}",Regex.Replace(text,pattern,"X"));
+			}
+
+
 
 			//press any key before exit
 			Console.WriteLine("Press any key ..");
