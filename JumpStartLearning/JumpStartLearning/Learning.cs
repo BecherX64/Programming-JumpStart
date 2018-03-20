@@ -195,6 +195,16 @@ namespace JumpStartLearning
 				Console.WriteLine("Replace using Regex:{0}",Regex.Replace(text,pattern,"X"));
 			}
 
+			//working with EventLog
+			//simple way
+			EventLog eventLog = new EventLog();
+			EventLog MyEventLog = eventLog;
+			MyEventLog.Source = "Application";
+			MyEventLog.WriteEntry("Test mesage", EventLogEntryType.Information, 102, 0);
+
+			//preffered way: register application as Event Log Source
+			//EventLog.CreateEventSource(eventSource, "Application");
+			//Full implementaion of create "register" event Source: EventLog.CreateEventSource(string EvetnSource, string LogName, string machineName);
 
 
 			//press any key before exit

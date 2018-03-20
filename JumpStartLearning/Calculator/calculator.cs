@@ -14,7 +14,7 @@ namespace Calculator
 			char key;
 			bool AppStatus = true;
 			int Number1, Number2;
-			int Result;
+			double Result;
 
 			do
 			{
@@ -41,7 +41,15 @@ namespace Calculator
 						Number1 = GetSomeKeyAsNumber();
 						Number2 = GetSomeKeyAsNumber();
 						Result = Multiply(Number1, Number2);
-						Console.WriteLine("Result: {0} - {1} = {2}", Number1, Number2, Result);
+						Console.WriteLine("Result: {0} * {1} = {2}", Number1, Number2, Result);
+						break;
+
+					case 'd':
+						//divede numbers
+						Number1 = GetSomeKeyAsNumber();
+						Number2 = GetSomeKeyAsNumber();
+						Result = Divide(Number1, Number2);
+						Console.WriteLine("Result: {0} / {1} = {2:N3}", Number1, Number2, Result);
 						break;
 					case 'c':
 						//clear console
@@ -76,6 +84,18 @@ namespace Calculator
 			return i + j;
 		}
 
+		private static double Divide(double i, double j)
+		{
+			if ((j == 0))
+			{
+				return 0;
+			}
+			else
+			{
+				return i/j;
+			}
+		}
+
 		private static int GetSomeKeyAsNumber()
 		{
 			Console.WriteLine("Enter any number:");
@@ -90,6 +110,7 @@ namespace Calculator
 			Console.WriteLine("(a)ddition: Press 'a'");
 			Console.WriteLine("(s)ubtraction: Press 's'");
 			Console.WriteLine("(m)ultiply: Press 'm'");
+			Console.WriteLine("(d)ivide: Press 'd'");
 			Console.WriteLine("(c)lear screen: Press 'c'");
 			Console.WriteLine("e(x)it: Press 'x'");
 		}

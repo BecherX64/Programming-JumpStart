@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Net;
+using System.Security;
 
 namespace JumpStartFiles
 {
@@ -12,7 +14,8 @@ namespace JumpStartFiles
 	{
 		static void Main(string[] args)
 		{
-			//variable definition
+
+			#region Working with StringBuilder
 			StringBuilder SomeString = new StringBuilder();
 			StringBuilder SomeStringToPlay = new StringBuilder();
 
@@ -111,9 +114,9 @@ namespace JumpStartFiles
 			double BigNumber = 23132156464.1534564;
 			Console.WriteLine("Exponatial - E2: {0:E2}", BigNumber);
 			Console.WriteLine("Exponatial - E4: {0:E4}", BigNumber);
+			#endregion
 
-
-			//fun with files
+			#region Work with files
 
 			var objDir = new ClFile();
 			//get current dir
@@ -183,8 +186,122 @@ namespace JumpStartFiles
 			{
 				Console.WriteLine("DIR: {0} dont exist", CurrentDir);
 			}
+			#endregion
 
+			#region Work with FileStream 
+			//FileStream read
+			string FilePath = "C:\\DataFolder\\Downloads\\TestShare\\BigFile.txt";
+			string FilePathNew = "C:\\DataFolder\\Downloads\\TestShare\\BigFileNew.txt";
+			using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+			{
+				int bytesToRead = 1;
+				int currentPossition = 0;
+
+				byte[] bytes = new byte[fs.Length];
+				byte[] tempFile = new byte[bytesToRead];
+
+				//read 1 by 1 byte from file
+				while (currentPossition < (int)fs.Length)
+				{
+					int readData = fs.Read(bytes, currentPossition, bytesToRead);
+					if (readData == 0)
+					{
+						break;
+					}
+					//Console.WriteLine("Possition: {0} - Data: {1}", currentPossition, (char)bytes[currentPossition]);
+					currentPossition += bytesToRead;
+					
+				}
+
+				//write stream
+				/*
+				using (FileStream fsWrite = new FileStream(FilePathNew, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None))
+				{
+					fsWrite.Write(bytes, 0, (int)fs.Length);
+				}
+				*/
+				
+
+				//list bytes content
+				/*
+				foreach (byte bit in bytes)
+				{
+					Console.WriteLine((char)bit);
+				}
+				*/
+
+			}
+			#endregion
+
+			#region Work with files using SYSTEM.NET
+			/*
+			Console.WriteLine(System.Security.Principal.WindowsIdentity.GetCurrent().Name);
+			string computer_name = Environment.MachineName;
+			//not working as sharing not possible
+			var fileRequest = WebRequest.Create(@"file://"+computer_name+"/TestShare/BigFile.txt");
+			fileRequest.Method = "POST";
+			Console.WriteLine(fileRequest.GetType());
+			System.IO.Stream readStream = null;
+			byte[] byteArray = new byte[10];
+			string TextToWrite = "Text to write to file";
+			//fileRequest.ContentLength = TextToWrite.Length;
+
+			try
+			{
+				readStream = fileRequest.GetRequestStream();
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("Muhahaha !!!");
+				throw;
+
+			}
+			readStream.SetLength(fileRequest.ContentLength);
+			readStream.Read(byteArray, 0, 10);
+
+			readStream.Close();
+			*/
+			#endregion
+
+
+			#region Work with Secure String
+			SecureString SecurelyStoredPassword = new SecureString();
+			Console.WriteLine("Enter User Name:");
+			string userName = Console.ReadLine();
+			Console.WriteLine("Enter User Password:");
+			string samplePassword = Console.ReadLine();
+			string userDomain = "";
+			foreach (char ch in samplePassword.ToCharArray())
+			{
+				SecurelyStoredPassword.AppendChar(ch);
+			}
+			SecurelyStoredPassword.MakeReadOnly();
+
+			Console.WriteLine("User Name: {0}",userName);
+			Console.WriteLine("User Password: {0}",SecurelyStoredPassword.ToString());
+
+			NetworkCredential myCred = new NetworkCredential(userName,SecurelyStoredPassword,userDomain);
+			CredentialCache myCredCache = new CredentialCache();
+
+			myCredCache.Add(new Uri("https://myService.com/GiveMeSomething.svc"), "Basic", myCred);
+			myCredCache.Add(new Uri("https://anotherMyService.com/GiveMeSomethingElse.svc"), "Basic", myCred);
+
+			WebRequest myWebRequest = WebRequest.Create("https://google.com");
+			myWebRequest.Credentials = myCredCache;
+			WebResponse myWebResponse = myWebRequest.GetResponse();
+
+			Console.WriteLine("Server: {0}", ((System.Net.HttpWebResponse)myWebResponse).Server);
+			Console.WriteLine("Absolute Uri: {0}",myWebResponse.ResponseUri.AbsoluteUri);
+			Console.WriteLine("Charecter Set: {0}",((System.Net.HttpWebResponse)myWebResponse).CharacterSet);
+			Console.WriteLine("Protocol Version: {0}",((System.Net.HttpWebResponse)myWebResponse).ProtocolVersion);
+			//Looks like WebResponce and HttpWebResponse are two different classes :)
+
+			SecurelyStoredPassword.Dispose();
 			
+
+			#endregion
+
+
 			//press any key
 			Console.WriteLine("press any key ...");
 			Console.ReadKey(true);
@@ -193,8 +310,7 @@ namespace JumpStartFiles
 
 
 
-
-
+		#region Methods and Functions
 		//functions and methods of FunWithFiles Class to be added 
 		//example of method
 		private string MyMethod(string text)
@@ -215,7 +331,7 @@ namespace JumpStartFiles
 			return (Math.Sign(byteCount) * num).ToString() + suf[place];
 		}
 		*/
-
+		#endregion
 
 
 	}
