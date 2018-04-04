@@ -192,6 +192,7 @@ namespace JumpStartFiles
 			//FileStream read
 			string FilePath = "C:\\DataFolder\\Downloads\\TestShare\\BigFile.txt";
 			string FilePathNew = "C:\\DataFolder\\Downloads\\TestShare\\BigFileNew.txt";
+
 			using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
 			{
 				int bytesToRead = 1;
